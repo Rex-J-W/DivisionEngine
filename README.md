@@ -5,4 +5,5 @@ Picture this:
 - GPU compute acceleration in C#
 - Open source
 - Simple tooling
+
 (More coming soon)
