@@ -1,0 +1,95 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:DivisionEngine.Editor.ViewModels"
+        xmlns:local="using:DivisionEngine.Editor"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080"
+        x:Class="DivisionEngine.Editor.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Division Engine" Background="#111" Foreground="#ccc">
+
+  <!--Editor Window Templates-->
+  <Window.DataTemplates>
+    <DataTemplate DataType="{x:Type local:ViewModels.ConsoleWindowViewModel}">
+      <local:ConsoleWindow/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type local:ViewModels.WorldWindowViewModel}">
+      <local:WorldWindow/>
+    </DataTemplate>
+  </Window.DataTemplates>
+
+  <!--Main Window-->
+  <DockPanel Background="#333">
+
+    <!--Main Menu-->
+    <StackPanel DockPanel.Dock="Top" Background="#444" Orientation="Horizontal">
+      <TextBlock Text="Division Engine" FontWeight="Bold" FontSize="16" Margin="5" VerticalAlignment="Center"/>
+      <Menu Foreground="#ccc">
+        <MenuItem Header="File" Foreground="#ccc">
+          <MenuItem Header="Open" Foreground="#ccc"/>
+          <MenuItem Header="Save" Foreground="#ccc"/>
+          <Separator/>
+          <MenuItem Header="Exit" Foreground="#ccc"/>
+        </MenuItem>
+        <MenuItem Header="Edit" Foreground="#ccc">
+          <MenuItem Header="Undo" Foreground="#ccc"/>
+          <MenuItem Header="Redo" Foreground="#ccc"/>
+        </MenuItem>
+        <MenuItem Header="Help" Foreground="#ccc">
+          <MenuItem Header="About" Foreground="#ccc"/>
+        </MenuItem>
+      </Menu>
+    </StackPanel>
+
+    <!--Basic Grid Layout-->
+    <Grid ColumnDefinitions="*, 2, 200">
+      <Grid Grid.Column="0" RowDefinitions="*, 2, 200">
+        <Grid Grid.Row="0" ColumnDefinitions="200, 2, *">
+          <!--Left Tabs-->
+          <TabControl Grid.Column="0" ItemsSource="{Binding LeftTabs}">
+            <TabControl.ItemTemplate>
+              <DataTemplate>
+                <TextBlock Text="{Binding Title}"/>
+              </DataTemplate>
+            </TabControl.ItemTemplate>
+          </TabControl>
+
+          <GridSplitter Grid.Column="1" ResizeDirection="Auto"/>
+
+          <!--Center Tabs-->
+          <TabControl Grid.Column="2" ItemsSource="{Binding CenterTabs}">
+            <TabControl.ItemTemplate>
+              <DataTemplate>
+                <TextBlock Text="{Binding Title}"/>
+              </DataTemplate>
+            </TabControl.ItemTemplate>
+          </TabControl>
+        </Grid>
+        
+        <GridSplitter Grid.Row="1" ResizeDirection="Auto"/>
+        
+        <!--Bottom Tabs-->
+        <TabControl Grid.Row="2" ItemsSource="{Binding BottomTabs}">
+          <TabControl.ItemTemplate>
+            <DataTemplate>
+              <TextBlock Text="{Binding Title}"/>
+            </DataTemplate>
+          </TabControl.ItemTemplate>
+        </TabControl>
+      </Grid>
+
+      <GridSplitter Grid.Column="1" ResizeDirection="Auto"/>
+
+      <!--Right Tabs-->
+      <TabControl Grid.Column="2" ItemsSource="{Binding RightTabs}">
+        <TabControl.ItemTemplate>
+          <DataTemplate>
+            <TextBlock Text="{Binding Title}"/>
+          </DataTemplate>
+        </TabControl.ItemTemplate>
+      </TabControl>
+    </Grid>
+  </DockPanel>
+</Window>

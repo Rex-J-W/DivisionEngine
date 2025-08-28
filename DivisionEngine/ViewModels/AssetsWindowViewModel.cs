@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DivisionEngine.Editor.ViewModels
+{
+    public partial class AssetsWindowViewModel : ViewModelBase
+    {
+        public AssetsWindowViewModel()
+        {
+            // Initialize any properties or commands here if needed
+        }
+    }
+}

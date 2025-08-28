@@ -1,0 +1,59 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             x:Class="DivisionEngine.Editor.App"
+             xmlns:vm="using:DivisionEngine.Editor"
+             xmlns:local="using:DivisionEngine.Editor"
+             RequestedThemeVariant="Default"
+             xmlns:avalonia_controls="using:Avalonia.Controls"
+             xmlns:avalonia_controls_presenters="using:Avalonia.Controls.Presenters">
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+  
+    <Application.Styles>
+      <!--Theme-->
+      <FluentTheme DensityStyle="Compact"/>
+      <materialIcons:MaterialIconStyles/>
+
+      <!--Division Engine Default Control Styling-->
+      <Style Selector="GridSplitter">
+        <Setter Property="Background" Value="#444"/>
+        <Setter Property="MinHeight" Value="1"/>
+        <Setter Property="MinWidth" Value="1"/>
+      </Style>
+
+      <Style Selector="TabControl">
+        <Setter Property="Background" Value="#111"/>
+        <Setter Property="Padding" Value="0"/>
+      </Style>
+      <Style Selector="TabControl /template/ avalonia_controls_presenters|ItemsPresenter#PART_ItemsPresenter">
+        <Setter Property="Margin" Value="0,0,0,0"/>
+      </Style>
+      
+      <Style Selector="TabItem">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Padding" Value="0,0,0,0"/>
+      </Style>
+      <Style Selector="TabItem:selected">
+        <Setter Property="Background" Value="#222"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="#111"/>
+      </Style>
+      <Style Selector="TabItem:pointerover">
+        <Setter Property="Background" Value="#aaa"/>
+      </Style>
+      <Style Selector="TabItem:selected /template/ Border#PART_SelectedPipe">
+        <Setter Property="Background" Value="DarkCyan"/>
+        <Setter Property="Height" Value="1"/>
+        <Setter Property="Margin" Value="0,0,0,0"/>
+      </Style>
+      <Style Selector="TabItem /template/ avalonia_controls_presenters|ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Padding" Value="4,2,4,2"/>
+      </Style>
+      
+    </Application.Styles>
+  
+</Application>
