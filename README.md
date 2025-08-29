@@ -4,6 +4,8 @@ Division Engine is an SDF-based game engine written entirely in C#. Utilizing Av
 
 The render pipeline is built using an OpenGL backend with HLSL shaders written in C# using ComputeSharp.
 
+Follow the development: https://trello.com/b/mWtyHBMf/division-engine
+
 Picture this:
 - SDF-based rendering
 - GPU compute acceleration in C#
