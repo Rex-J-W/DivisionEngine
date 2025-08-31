@@ -9,7 +9,10 @@ namespace DivisionEngine.Editor.ViewModels
         public ConsoleWindowViewModel()
         {
             Title = "Console";
-            Logs.Add("Console initialized.");
+            Debug.OnLogUpdate += (entry) =>
+            {
+                Logs.Add(entry.ToString());
+            };
         }
     }
 }

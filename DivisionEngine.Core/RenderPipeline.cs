@@ -1,7 +1,6 @@
 ﻿using ComputeSharp;
 using Silk.NET.OpenGL;
 using Silk.NET.Windowing;
-using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using Window = Silk.NET.Windowing.Window;
 
@@ -51,13 +50,13 @@ namespace DivisionEngine
             options.UpdatesPerSecond = 60; // Sets the update rate to 60 FPS
             RendererWindow = Window.Create(options);
 
-            Debug.WriteLine("Renderer: Created Render Window");
+            Debug.Info("Renderer: Created Render Window");
             RendererWindow.Load += OnLoad;
             RendererWindow.Render += OnRender;
             RendererWindow.Closing += OnClosing;
-            Debug.WriteLine("Renderer: Running Renderer");
+            Debug.Info("Renderer: Running Renderer");
             RendererWindow.Run();
-            Debug.WriteLine("Renderer: Terminated");
+            Debug.Info("Renderer: Terminated");
         }
 
         /// <summary>
@@ -74,7 +73,7 @@ namespace DivisionEngine
             gl = GL.GetApi(RendererWindow);
 
             // Initialize OpenGL context
-            Debug.WriteLine("Renderer: Initialize OpenGL Context");
+            Debug.Info("Renderer: Initialize OpenGL Context");
             gl.GenTextures(1, out glTexture);
             gl.BindTexture(TextureTarget.Texture2D, glTexture);
             gl.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)GLEnum.Linear);
@@ -83,11 +82,11 @@ namespace DivisionEngine
             // Load graphics device
             device = GraphicsDevice.GetDefault();
 
-            Debug.WriteLine("Renderer: Compiling OpenGL Shader Program");
+            Debug.Info("Renderer: Compiling OpenGL Shader Program");
             shaderProgram = CompileShaders();
             gl!.GenVertexArrays(1, out uint vao);
             gl.BindVertexArray(vao); // Bind the Vertex Array Object (VAO)
-            Debug.WriteLine("Renderer: VAO Bound");
+            Debug.Info("Renderer: VAO Bound");
 
             InputReady = true; // Set input ready to true after OpenGL context is initialized
         }
@@ -230,10 +229,10 @@ namespace DivisionEngine
             if (success == 0)
             {
                 string info = gl.GetShaderInfoLog(shader);
-                Debug.WriteLine($"{name} Compile Error: {info}");
+                Debug.Error($"{name} Compile Error: {info}");
             }
             else
-                Debug.WriteLine($"{name} Compiled Successfully");
+                Debug.Info($"{name} Compiled Successfully");
         }
 
         /// <summary>
@@ -248,10 +247,10 @@ namespace DivisionEngine
             if (success == 0)
             {
                 string info = gl.GetProgramInfoLog(program);
-                Debug.WriteLine($"Shader Program Link Error: {info}");
+                Debug.Error($"Shader Program Link Error: {info}");
             }
             else
-                Debug.WriteLine("Shader Program Linked Successfully");
+                Debug.Info("Shader Program Linked Successfully");
         }
     }
 
