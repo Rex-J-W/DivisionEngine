@@ -11,12 +11,12 @@ namespace DivisionEngine.Editor.ViewModels
 
         public MainWindowViewModel()
         {
-            BottomTabs.Add(new ConsoleWindowViewModel());
             CenterTabs.Add(new WorldWindowViewModel());
-            LeftTabs.Add(new ConsoleWindowViewModel());
-            RightTabs.Add(new ConsoleWindowViewModel());
+            LeftTabs.Add(new EnvironmentWindowViewModel());
+            RightTabs.Add(new PropertiesWindowViewModel());
 
-            BottomTabs.Add(new ConsoleWindowViewModel() { Title = "Test" });
+            BottomTabs.Add(new AssetsWindowViewModel());
+            BottomTabs.Add(new ConsoleWindowViewModel());
         }
     }
 }

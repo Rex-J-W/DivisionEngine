@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace DivisionEngine.Editor.ViewModels
 {
-    public partial class AssetsWindowViewModel : EditorWindowViewModel
+    public partial class PropertiesWindowViewModel : EditorWindowViewModel
     {
-        public AssetsWindowViewModel()
+        public PropertiesWindowViewModel()
         {
-            Title = "Assets";
+            Title = "Properties";
         }
     }
 }
