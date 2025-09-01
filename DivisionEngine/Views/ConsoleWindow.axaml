@@ -7,7 +7,7 @@
                     mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
                     x:Class="DivisionEngine.Editor.ConsoleWindow"
                     x:DataType="vm:ConsoleWindowViewModel">
-  <Border Padding="0,4,0,4" Background="#222">
+  <Border Background="#222">
     <ItemsControl ItemsSource="{Binding Path=Logs}">
       <ItemsControl.Template>
         <ControlTemplate>
