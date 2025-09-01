@@ -16,9 +16,23 @@
           </ScrollViewer>
         </ControlTemplate>
       </ItemsControl.Template>
+      
       <ItemsControl.ItemTemplate>
         <DataTemplate>
-          <TextBlock Text="{Binding}" Foreground="White"/>
+          
+          <Border BorderBrush="#444" BorderThickness="0,0,0,1" Padding="4">
+            <StackPanel Orientation="Horizontal" Spacing="2">
+              <TextBlock Text="{Binding Path=Timestamp.TimeOfDay, StringFormat=[{0}]}" Foreground="#666">
+              </TextBlock>
+
+              <TextBlock Text="{Binding Path=Level, StringFormat=[{0}]}">
+              </TextBlock>
+
+              <TextBlock Text="{Binding Path=Message}">
+              </TextBlock>
+            </StackPanel>
+          </Border>
+          
         </DataTemplate>
       </ItemsControl.ItemTemplate>
     </ItemsControl>

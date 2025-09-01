@@ -4,15 +4,12 @@ namespace DivisionEngine.Editor.ViewModels
 {
     public partial class ConsoleWindowViewModel : EditorWindowViewModel
     {
-        public ObservableCollection<string> Logs { get; } = [];
+        public ObservableCollection<Debug.LogEntry> Logs { get; } = [];
 
         public ConsoleWindowViewModel()
         {
             Title = "Console";
-            Debug.OnLogUpdate += (entry) =>
-            {
-                Logs.Add(entry.ToString());
-            };
+            Debug.OnLogUpdate += Logs.Add;
         }
     }
 }
