@@ -22,3 +22,4 @@ Follow the development: https://trello.com/b/mWtyHBMf/division-engine
 
 Tutorials:
 - Build mathematical worlds: https://www.youtube.com/watch?v=0ifChJ0nJfM&list=PL0EpikNmjs2CYUMePMGh3IjjP4tQlYqji
+- Build a 3D landscape: https://www.youtube.com/watch?v=BFld4EBO2RE&t=1190s
