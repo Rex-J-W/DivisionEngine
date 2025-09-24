@@ -1,4 +1,4 @@
-# DivisionEngine
+# Division Engine
 
 Division Engine is an SDF-based game engine written entirely in C#. Utilizing Avalonia UI for the interface and Silk.Net for native rendering, Division Engine has a complete build pipeline completely written in C#.
 
