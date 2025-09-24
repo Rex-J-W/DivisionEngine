@@ -21,4 +21,4 @@ Picture this:
 Follow the development: https://trello.com/b/mWtyHBMf/division-engine
 
 Tutorials:
-- https://www.youtube.com/watch?v=0ifChJ0nJfM&list=PL0EpikNmjs2CYUMePMGh3IjjP4tQlYqji
+- Build mathematical worlds: https://www.youtube.com/watch?v=0ifChJ0nJfM&list=PL0EpikNmjs2CYUMePMGh3IjjP4tQlYqji
