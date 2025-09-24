@@ -17,7 +17,7 @@ Picture this:
 
 (More coming soon)
 
-###Resources:
+### Resources:
 Follow the development: https://trello.com/b/mWtyHBMf/division-engine
 
 Tutorials:
