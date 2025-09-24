@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 
 namespace DivisionEngine.Editor.ViewModels
 {
     public partial class AssetsWindowViewModel : EditorWindowViewModel
     {
+        public ObservableCollection<Debug.LogEntry> Logs { get; } = [];
+
         public AssetsWindowViewModel()
         {
             Title = "Assets";
