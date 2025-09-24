@@ -116,7 +116,10 @@ namespace DivisionEngine
             ReadWriteTexture2D<float4> renderTex = device!.AllocateReadWriteTexture2D<float4>(texWidth, texHeight);
 
             // Dispatch SDF compute shader
-            SDFShader shader = new SDFShader(renderTex, time, texWidth, texHeight);
+            float4x4 camToWorld = new float4x4(); // Replace with actual camera to world matrix
+            float4x4 camInverseProj = new float4x4(); // Replace with actual camera inverse projection matrix
+
+            SDFShader shader = new SDFShader(renderTex, time, texWidth, texHeight, camToWorld, camInverseProj);
             device!.For(texWidth, texHeight, shader);
 
             float4[] pixels = new float4[texWidth * texHeight];
