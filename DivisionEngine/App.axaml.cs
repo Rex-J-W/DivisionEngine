@@ -6,6 +6,7 @@ using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
 using DivisionEngine.Editor.ViewModels;
 using DivisionEngine.Rendering;
+using DivisionEngine.Input;
 using Silk.NET.Input;
 using System;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace DivisionEngine.Editor
         /// Reference to the Division SDF render pipeline.
         /// </summary>
         public static RenderPipeline? Renderer { get; private set; }
-        public static Input? InputSystem { get; private set; }
+        public static InputSystem? UserInput { get; private set; }
 
         public override void Initialize()
         {
@@ -52,7 +53,7 @@ namespace DivisionEngine.Editor
                 };
 
                 // Initialize the input system
-                InputSystem = new Input();
+                UserInput = new InputSystem();
                 SetupInput(desktop);
 
                 // Close the renderer window when the application exits
@@ -72,8 +73,8 @@ namespace DivisionEngine.Editor
         private static async void SetupInput(IClassicDesktopStyleApplicationLifetime desktop)
         {
             // Avalonia input handling
-            desktop.MainWindow!.KeyUp += (s, e) => InputSystem?.SetKeyUp(EditorInput.AvaloniaToKeyCode(e.Key));
-            desktop.MainWindow.KeyDown += (s, e) => InputSystem?.SetKeyDown(EditorInput.AvaloniaToKeyCode(e.Key));
+            desktop.MainWindow!.KeyUp += (s, e) => UserInput?.SetKeyUp(EditorInput.AvaloniaToKeyCode(e.Key));
+            desktop.MainWindow.KeyDown += (s, e) => UserInput?.SetKeyDown(EditorInput.AvaloniaToKeyCode(e.Key));
 
             // Silk.NET input handling
             while (Renderer == null || Renderer!.RendererWindow == null)
@@ -89,8 +90,8 @@ namespace DivisionEngine.Editor
                 IInputContext? input = Renderer!.RendererWindow!.CreateInput();
                 foreach (var keyboard in input.Keyboards)
                 {
-                    keyboard.KeyDown += (kb, key, code) => InputSystem!.SetKeyDown(EditorInput.SilkNetToKeyCode(key));
-                    keyboard.KeyUp += (kb, key, code) => InputSystem!.SetKeyUp(EditorInput.SilkNetToKeyCode(key));
+                    keyboard.KeyDown += (kb, key, code) => UserInput!.SetKeyDown(EditorInput.SilkNetToKeyCode(key));
+                    keyboard.KeyUp += (kb, key, code) => UserInput!.SetKeyUp(EditorInput.SilkNetToKeyCode(key));
                 }
             }
         }
