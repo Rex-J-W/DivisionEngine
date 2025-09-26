@@ -1,4 +1,4 @@
-﻿namespace DivisionEngine
+﻿namespace DivisionEngine.Input
 {
     /// <summary>
     /// Represents a key code in the input system.

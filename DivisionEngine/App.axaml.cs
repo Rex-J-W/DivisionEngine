@@ -5,6 +5,7 @@ using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
 using DivisionEngine.Editor.ViewModels;
+using DivisionEngine.Rendering;
 using Silk.NET.Input;
 using System;
 using System.Linq;

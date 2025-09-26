@@ -1,10 +1,11 @@
 ﻿using ComputeSharp;
+using DivisionEngine.Input;
 using Silk.NET.OpenGL;
 using Silk.NET.Windowing;
 using System.Diagnostics.CodeAnalysis;
 using Window = Silk.NET.Windowing.Window;
 
-namespace DivisionEngine
+namespace DivisionEngine.Rendering
 {
 
     /// <summary>

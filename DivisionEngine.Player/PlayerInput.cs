@@ -1,4 +1,5 @@
-﻿using Silk.NET.Input;
+﻿using DivisionEngine.Input;
+using Silk.NET.Input;
 
 namespace DivisionEngine.Player
 {
