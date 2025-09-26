@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DivisionEngine
+namespace DivisionEngine.Components
 {
     public struct Transform : IComponent
     {

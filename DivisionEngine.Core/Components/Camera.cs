@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace DivisionEngine
+namespace DivisionEngine.Components
 {
     /// <summary>
     /// Represents a camera in a 3D space, including its position, rotation, and field of view.
     /// </summary>
-    public class Camera
+    public class Camera : IComponent
     {
         public float fov;
         public float3 position;
@@ -19,7 +19,7 @@ namespace DivisionEngine
 
         public float FovToScreenDistance(float fov, float height)
         {
-            return (height / 2) / MathF.Tan(fov * MathF.PI / 360);
+            return height / 2 / MathF.Tan(fov * MathF.PI / 360);
         }
 
         // Complete setting these methods up later

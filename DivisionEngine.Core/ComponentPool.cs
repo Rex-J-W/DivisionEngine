@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DivisionEngine.Components
+namespace DivisionEngine
 {
     /// <summary>
     /// Represents a pool of components that can be associated with entities, identified by unique entity IDs.

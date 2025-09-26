@@ -1,4 +1,4 @@
-﻿namespace DivisionEngine.Rendering
+﻿namespace DivisionEngine.Components
 {
     public struct SDFSphere : IComponent
     {
