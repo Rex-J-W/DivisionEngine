@@ -87,12 +87,12 @@
     /// <summary>
     /// Handles input events and maintains input state.
     /// </summary>
-    public class Input
+    public class InputSystem
     {
         /// <summary>
         /// Instance of the Input class, used for singleton access.
         /// </summary>
-        public static Input? Instance { get; private set; }
+        public static InputSystem? Instance { get; private set; }
 
         private readonly HashSet<KeyCode> pressedKeys;
         private readonly object syncLock;
@@ -101,7 +101,7 @@
         /// Initializes a new input system singleton.
         /// </summary>
         /// <remarks>(this should only be called once)</remarks>
-        public Input()
+        public InputSystem()
         {
             syncLock = new object();
             pressedKeys = [];

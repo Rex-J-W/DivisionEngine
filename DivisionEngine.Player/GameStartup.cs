@@ -1,4 +1,5 @@
-﻿using DivisionEngine.Rendering;
+﻿using DivisionEngine.Input;
+using DivisionEngine.Rendering;
 using Silk.NET.Input;
 
 namespace DivisionEngine.Player;
@@ -9,7 +10,7 @@ namespace DivisionEngine.Player;
 public class GameStartup
 {
     public static RenderPipeline? Renderer { get; private set; }
-    public static Input? InputSystem { get; private set; }
+    public static InputSystem? UserInput { get; private set; }
 
     /// <summary>
     /// The main entry point for the game.
@@ -18,7 +19,7 @@ public class GameStartup
     [STAThread]
     public static void Main(string[] args)
     {
-        InputSystem = new Input();
+        UserInput = new InputSystem();
         SetupInput();
 
         Renderer = new RenderPipeline();
@@ -44,8 +45,8 @@ public class GameStartup
             IInputContext? input = Renderer!.RendererWindow!.CreateInput();
             foreach (var keyboard in input.Keyboards)
             {
-                keyboard.KeyDown += (kb, key, code) => InputSystem!.SetKeyDown(PlayerInput.SilkNetToKeyCode(key));
-                keyboard.KeyUp += (kb, key, code) => InputSystem!.SetKeyUp(PlayerInput.SilkNetToKeyCode(key));
+                keyboard.KeyDown += (kb, key, code) => UserInput!.SetKeyDown(PlayerInput.SilkNetToKeyCode(key));
+                keyboard.KeyUp += (kb, key, code) => UserInput!.SetKeyUp(PlayerInput.SilkNetToKeyCode(key));
             }
         }
     }

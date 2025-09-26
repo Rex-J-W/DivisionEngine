@@ -104,11 +104,11 @@ namespace DivisionEngine.Rendering
                 time = Time;
             }
 
-            if (Input.IsPressed(KeyCode.J))
+            if (InputSystem.IsPressed(KeyCode.J))
             {
                 time = 0.5f;
             }
-            else if (Input.IsPressed(KeyCode.K))
+            else if (InputSystem.IsPressed(KeyCode.K))
             {
                 time = 0.2f;
             }
