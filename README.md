@@ -26,6 +26,6 @@ Tutorials:
 
 Division Engine is built using three core packages: Silk.Net, ComputeSharp, and AvaloniaUI.
 Check them out here:
-- ([https://github.com/username/repository](https://github.com/dotnet/Silk.NET/releases))
-- 
-- 
+- [Silk.Net](https://github.com/dotnet/Silk.NET)
+- [ComputeSharp](https://github.com/Sergio0694/ComputeSharp)
+- [AvaloniaUI](https://github.com/AvaloniaUI/Avalonia)
