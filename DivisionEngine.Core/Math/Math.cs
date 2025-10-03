@@ -205,7 +205,7 @@
             return angle;
         }
 
-        public static float3 QuaternionToEuler(float4 q)
+        public static float3 QuaternionToEuler(this float4 q)
         {
             // Roll (x-axis rotation)
             float sinr_cosp = 2 * (q.W * q.X + q.Y * q.Z);
@@ -225,7 +225,7 @@
             return new float3(roll, pitch, yaw);
         }
 
-        public static float4 EulerToQuaternion(float3 euler)
+        public static float4 EulerToQuaternion(this float3 euler)
         {
             // Abbreviations for the various angular functions
             double cy = Cos(euler.Z * 0.5f);
