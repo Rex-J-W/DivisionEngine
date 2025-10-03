@@ -6,6 +6,52 @@
     /// <remarks>This class is still untested, and therefore cannot be used in production yet</remarks>
     public static class Vector
     {
+        /// <summary>
+        /// Calculates the dot product of two float2 vectors.
+        /// </summary>
+        /// <param name="a">Vector a</param>
+        /// <param name="b">Vector b</param>
+        /// <returns>Dot product of vectors a and b</returns>
+        public static float Dot(this float2 a, float2 b) => a.X * b.X + a.Y * b.Y;
+
+        /// <summary>
+        /// Calculates the dot product of two float3 vectors.
+        /// </summary>
+        /// <param name="a">Vector a</param>
+        /// <param name="b">Vector b</param>
+        /// <returns>Dot product of vectors a and b</returns>
+        public static float Dot(this float3 a, float3 b) => a.X * b.X + a.Y * b.Y + a.Z * b.Z;
+
+        /// <summary>
+        /// Computes the length (magnitude) of a the vector v.
+        /// </summary>
+        /// <param name="v">Magnitude vector</param>
+        /// <returns>Magnitude of vector v</returns>
+        public static float Length(this float2 v) => (float)Math.Sqrt(v.X * v.X + v.Y * v.Y);
+
+        /// <summary>
+        /// Computes the length (magnitude) of a the vector v.
+        /// </summary>
+        /// <param name="v">Magnitude vector</param>
+        /// <returns>Magnitude of vector v</returns>
+        public static float Length(this float3 v) => (float)Math.Sqrt(v.X * v.X + v.Y * v.Y + v.Z * v.Z);
+
+        public static float Distance(float2 a, float2 b) => Length(b - a);
+        public static float Distance(float3 a, float3 b) => Length(b - a);
+
+        public static float3 Cross(float3 a, float3 b) => new float3(
+            a.Y * b.Z - a.Z * b.Y,
+            a.Z * b.X - a.X * b.Z,
+            a.X * b.Y - a.Y * b.X
+        );
+
+        public static float2 Normalize(this float2 v)
+        {
+            float length = Length(v);
+            if (length == 0) return new float2(0, 0);
+            return new float2(v.X / length, v.Y / length);
+        }
+
         public static float3 Normalize(this float3 v)
         {
             float length = Length(v);
@@ -13,10 +59,7 @@
             return new float3(v.X / length, v.Y / length, v.Z / length);
         }
 
-        public static float3 Reflect(float3 I, float3 N)
-        {
-            return I - 2 * Dot(N, I) * N;
-        }
+        public static float3 Reflect(float3 I, float3 N) => I - 2 * Dot(N, I) * N;
 
         public static float3 Refract(float3 I, float3 N, float eta)
         {
@@ -52,25 +95,6 @@
             float theta = (float)Math.Acos(dot) * t;
             float3 relativeVec = Normalize(b - dot * a);
             return Normalize(a * (float)Math.Cos(theta) + relativeVec * (float)Math.Sin(theta));
-        }
-
-        public static float3 Cross(float3 a, float3 b)
-        {
-            return new float3(
-                a.Y * b.Z - a.Z * b.Y,
-                a.Z * b.X - a.X * b.Z,
-                a.X * b.Y - a.Y * b.X
-            );
-        }
-
-        public static float Dot(this float3 a, float3 b)
-        {
-            return a.X * b.X + a.Y * b.Y + a.Z * b.Z;
-        }
-
-        public static float Length(this float3 v)
-        {
-            return (float)Math.Sqrt(v.X * v.X + v.Y * v.Y + v.Z * v.Z);
         }
     }
 }
