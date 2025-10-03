@@ -58,5 +58,38 @@
         /// <returns>Next random boolean for current rng instance</returns>
         /// <remarks>50% chance of true or false, uses "NextInt(0, 2) == 0" internally</remarks>
         public static bool NextBool() => _rng.Next(0, 2) == 0;
+
+        /// <summary>
+        /// Random generation methods for vectors.
+        /// </summary>
+        public static class Vector
+        {
+            public static float2 NextFloat2(float min = 0.0f, float max = 1.0f) => new float2(NextFloat(min, max), NextFloat(min, max));
+            public static float3 NextFloat3(float min = 0.0f, float max = 1.0f) => new float3(NextFloat(min, max), NextFloat(min, max), NextFloat(min, max));
+            public static float4 NextFloat4(float min = 0.0f, float max = 1.0f) => new float4(NextFloat(min, max), NextFloat(min, max), NextFloat(min, max), NextFloat(min, max));
+        }
+
+        /// <summary>
+        /// Random generation methods for quaternions.
+        /// </summary>
+        public static class Quaternion
+        {
+            /*public static float4 NextQuaternion(float min = 0.0f, float max = 1.0f)
+            {
+                // Generate a random unit quaternion using the method by Ken Shoemake
+                float u1 = NextFloat(min, max);
+                float u2 = NextFloat(min, max);
+                float u3 = NextFloat(min, max);
+                float sqrt1MinusU1 = MathF.Sqrt(1 - u1);
+                float sqrtU1 = MathF.Sqrt(u1);
+                float theta1 = 2 * MathF.PI * u2;
+                float theta2 = 2 * MathF.PI * u3;
+                float w = sqrt1MinusU1 * MathF.Sin(theta1);
+                float x = sqrt1MinusU1 * MathF.Cos(theta1);
+                float y = sqrtU1 * MathF.Sin(theta2);
+                float z = sqrtU1 * MathF.Cos(theta2);
+                return new float4(x, y, z, w);
+            }*/
+        }
     }
 }
