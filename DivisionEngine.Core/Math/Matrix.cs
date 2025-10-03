@@ -8,6 +8,23 @@ namespace DivisionEngine.Math
     public static class Matrix
     {
         /// <summary>
+        /// Represents a 2x2 matrix with all elements set to zero.
+        /// </summary>
+        public static float2x2 Zero2x2 => new float2x2(
+            0, 0,
+            0, 0
+        );
+
+        /// <summary>
+        /// Represents a 3x3 matrix with all elements set to zero.
+        /// </summary>
+        public static float3x3 Zero3x3 => new float3x3(
+            0, 0, 0,
+            0, 0, 0,
+            0, 0, 0
+        );
+
+        /// <summary>
         /// Represents a 4x4 matrix with all elements set to zero.
         /// </summary>
         public static float4x4 Zero4x4 => new float4x4(
@@ -15,6 +32,23 @@ namespace DivisionEngine.Math
             0, 0, 0, 0,
             0, 0, 0, 0,
             0, 0, 0, 0
+        );
+
+        /// <summary>
+        /// Represents a 2x2 identity matrix.
+        /// </summary>
+        public static float2x2 Identity2x2 => new float2x2(
+            1, 0,
+            0, 1
+        );
+
+        /// <summary>
+        /// Represents a 3x3 identity matrix.
+        /// </summary>
+        public static float3x3 Identity3x3 => new float3x3(
+            1, 0, 0,
+            0, 1, 0,
+            0, 0, 1
         );
 
         /// <summary>
@@ -28,11 +62,33 @@ namespace DivisionEngine.Math
         );
 
         /// <summary>
+        /// Calculates the determinant of a 2x2 matrix.
+        /// </summary>
+        /// <param name="matrix">Matrix to calculate the determinant of</param>
+        /// <returns>Determinant of <param name="matrix"></returns>
+        public static float Determinant(this float2x2 matrix)
+        {
+            return matrix.M11 * matrix.M22 - matrix.M12 * matrix.M21;
+        }
+
+        /// <summary>
+        /// Calculates the determinant of a 3x3 matrix.
+        /// </summary>
+        /// <param name="matrix">Matrix to calculate the determinant of</param>
+        /// <returns>Determinant of <param name="matrix"></returns>
+        public static float Determinant(this float3x3 matrix)
+        {
+            return matrix.M11 * (matrix.M22 * matrix.M33 - matrix.M23 * matrix.M32) -
+                   matrix.M12 * (matrix.M21 * matrix.M33 - matrix.M23 * matrix.M31) +
+                   matrix.M13 * (matrix.M21 * matrix.M32 - matrix.M22 * matrix.M31);
+        }
+
+        /// <summary>
         /// Calculates the determinant of a 4x4 matrix.
         /// </summary>
         /// <param name="matrix">Matrix to calculate the determinant of</param>
         /// <returns>Determinant of <param name="matrix"></returns>
-        internal static float Determinant(this float4x4 matrix)
+        public static float Determinant(this float4x4 matrix)
         {
             return matrix.M11 * (matrix.M22 * (matrix.M33 * matrix.M44 - matrix.M34 * matrix.M43) -
                                  matrix.M23 * (matrix.M32 * matrix.M44 - matrix.M34 * matrix.M42) +
@@ -79,6 +135,27 @@ namespace DivisionEngine.Math
         }
 
         /// <summary>
+        /// Computes the inverse of the specified 2x2 matrix.
+        /// </summary>
+        /// <remarks>The method calculates the inverse of the given matrix using a mathematical approach.
+        /// If the determinant of the matrix is zero, indicating that the matrix is singular, the method returns the
+        /// identity matrix instead.</remarks>
+        /// <param name="matrix">The <see cref="float2x2"/> matrix to invert.</param>
+        /// <returns>A new <see cref="float2x2"/> representing the inverse of the input matrix. If the matrix is singular
+        /// (non-invertible), the returned matrix will be the identity matrix.</returns>
+        public static float2x2 Inverse(this float2x2 matrix)
+        {
+            float det = matrix.Determinant();
+            if (det == 0)
+                return Identity2x2; // Return identity if not invertible
+            float invDet = 1.0f / det;
+            return new float2x2(
+                matrix.M22 * invDet, -matrix.M12 * invDet,
+                -matrix.M21 * invDet, matrix.M11 * invDet
+            );
+        }
+
+        /// <summary>
         /// Computes the inverse of the specified 4x4 matrix.
         /// </summary>
         /// <remarks>The method calculates the inverse of the given matrix using a mathematical approach.
@@ -92,6 +169,33 @@ namespace DivisionEngine.Math
             if (Matrix4x4.Invert(matrix.Float4x4ToMatrix4x4(), out Matrix4x4 m))
                 return m.Matrix4x4ToFloat4x4();
             return Identity4x4;
+        }
+
+        /// <summary>
+        /// Transposes the specified 2x2 matrix.
+        /// </summary>
+        /// <param name="matrix">Matrix to transpose</param>
+        /// <returns>Transposed matrix</returns>
+        public static float2x2 Transpose(this float2x2 matrix)
+        {
+            return new float2x2(
+                matrix.M11, matrix.M21,
+                matrix.M12, matrix.M22
+            );
+        }
+
+        /// <summary>
+        /// Transposes the specified 3x3 matrix.
+        /// </summary>
+        /// <param name="matrix">Matrix to transpose</param>
+        /// <returns>Transposed matrix</returns>
+        public static float3x3 Transpose(this float3x3 matrix)
+        {
+            return new float3x3(
+                matrix.M11, matrix.M21, matrix.M31,
+                matrix.M12, matrix.M22, matrix.M32,
+                matrix.M13, matrix.M23, matrix.M33
+            );
         }
 
         /// <summary>
