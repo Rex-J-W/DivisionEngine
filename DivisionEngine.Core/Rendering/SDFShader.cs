@@ -1,5 +1,4 @@
 ﻿using ComputeSharp;
-using System.Drawing;
 
 #pragma warning disable CA1416 // Validate platform compatibility
 namespace DivisionEngine
