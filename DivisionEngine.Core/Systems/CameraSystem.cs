@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DivisionEngine.Systems
+﻿namespace DivisionEngine.Systems
 {
-    public static class CameraSystem
+    public class CameraSystem(World world) : SystemBase(world)
     {
-
+        public override void Update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

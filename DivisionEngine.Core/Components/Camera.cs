@@ -1,23 +1,16 @@
-﻿using System;
+﻿using DivisionEngine.Math;
 
 namespace DivisionEngine.Components
 {
     /// <summary>
     /// Represents a camera in a 3D space, including its position, rotation, and field of view.
     /// </summary>
-    public class Camera : IComponent
+    /// <remarks>Currently untested, needs to be integrated with rendering system.</remarks>
+    public class Camera(float fov) : IComponent
     {
-        public float fov;
-        public float3 position;
-        public float4 rotation; // quaternion for rotation
+        public float fov = fov;
 
-        public Camera(float x, float y, float z)
-        {
-            position = new float3(x, y, z);
-            rotation = new float4(0, 0, 0, 1); // Default rotation (no rotation)
-        }
-
-        public float FovToScreenDistance(float fov, float height)
+        public static float FovToScreenDistance(float fov, float height)
         {
             return height / 2 / MathF.Tan(fov * MathF.PI / 360);
         }
@@ -29,7 +22,7 @@ namespace DivisionEngine.Components
             float4x4 translationMatrix = float4x4.CreateTranslation(position);
             float4x4 rotationMatrix = float4x4.CreateFromQuaternion(rotation);
             return rotationMatrix * translationMatrix;
-        }
+        }*/
 
         public float4x4 GetCameraInverseProjectionMatrix(float aspectRatio)
         {
@@ -46,8 +39,7 @@ namespace DivisionEngine.Components
                 M43 = -1,
                 M44 = 0
             };
-            return projectionMatrix.Invert();
-        }*/
-
+            return projectionMatrix.Inverse();
+        }
     }
 }
