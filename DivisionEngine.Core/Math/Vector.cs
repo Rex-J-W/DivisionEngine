@@ -68,9 +68,7 @@
             if (cosi < 0) cosi = -cosi;
             else
             {
-                float temp = etai;
-                etai = etat;
-                etat = temp;
+                (etat, etai) = (etai, etat);
                 N = -N;
             }
             float etaRatio = etai / etat;
