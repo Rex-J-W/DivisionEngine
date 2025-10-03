@@ -4,7 +4,7 @@
     /// Extension methods for float3 vector operations.
     /// </summary>
     /// <remarks>This class is still untested, and therefore cannot be used in production yet</remarks>
-    public static class Float3
+    public static class Vector
     {
         public static float3 Normalize(this float3 v)
         {
