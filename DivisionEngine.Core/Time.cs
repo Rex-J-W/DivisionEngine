@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DivisionEngine.Debug;
 
 namespace DivisionEngine
 {
@@ -17,6 +18,9 @@ namespace DivisionEngine
         /// </summary>
         public static Time? Instance { get; private set; }
 
-
+        public Time()
+        {
+            Log("Time system initialized.", LogLevel.Info);
+        }
     }
 }
