@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DivisionEngine
+﻿namespace DivisionEngine
 {
     /// <summary>
     /// Represents a simulation world that manages entities and their associated components.
@@ -21,16 +15,19 @@ namespace DivisionEngine
         private readonly HashSet<int> aliveEntities = [];
 
         /// <summary>
+        /// Get all alive entities in the world.
+        /// </summary>
+        /// <returns>All alive entities</returns>
+        public IEnumerable<int> GetAliveEntities() => aliveEntities;
+
+        /// <summary>
         /// Creates a new instance of the <see cref="Entity"/> class with a unique identifier.
         /// </summary>
         /// <remarks>Each call to this method generates a new <see cref="Entity"/> with a unique
         /// identifier that is incremented automatically. The identifier is guaranteed to be unique within the scope of
         /// this instance.</remarks>
         /// <returns>A new <see cref="Entity"/> instance initialized with a unique identifier.</returns>
-        public Entity CreateEntity()
-        {
-            return new Entity(nextEntityId++);
-        }
+        public Entity CreateEntity() => new Entity(nextEntityId++);
 
         /// <summary>
         /// Removes the specified entity and its associated components from the system.
@@ -82,7 +79,7 @@ namespace DivisionEngine
         /// default value for the type of the component.</param>
         /// <returns><see langword="true"/> if the component of type <typeparamref name="T"/> was successfully retrieved;
         /// otherwise, <see langword="false"/>.</returns>
-        public bool TryGetComponent<T>(Entity entity, out T component) where T : IComponent
+        public bool HasComponent<T>(Entity entity, out T component) where T : IComponent
         {
             return GetPool<T>().TryGet(entity.ID, out component);
         }
