@@ -5,8 +5,8 @@
                     xmlns:local="clr-namespace:DivisionEngine.Editor"
                     xmlns:vm="using:DivisionEngine.Editor.ViewModels"
                     mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-                    x:Class="DivisionEngine.Editor.WorldWindow"
-                    x:DataType="vm:WorldWindowViewModel">
+                    x:Class="DivisionEngine.Editor.EnvironmentWindow"
+                    x:DataType="vm:EnvironmentWindowViewModel">
   <DockPanel>
     <StackPanel DockPanel.Dock="Top">
       <StackPanel.Styles>
@@ -18,7 +18,7 @@
 
       <TextBlock Text="Test"></TextBlock>
     </StackPanel>
-    
+
     <Panel x:Name="RenderVisualizerFrame"/>
   </DockPanel>
 

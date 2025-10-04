@@ -5,11 +5,11 @@ using System;
 
 namespace DivisionEngine.Editor;
 
-public partial class WorldWindow : UserControl
+public partial class EnvironmentWindow : UserControl
 {
     private readonly DispatcherTimer? renderWindowUpdate;
 
-    public WorldWindow()
+    public EnvironmentWindow()
     {
         InitializeComponent();
 

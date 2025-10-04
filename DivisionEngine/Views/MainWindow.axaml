@@ -19,8 +19,8 @@
     <DataTemplate DataType="{x:Type local:ViewModels.ConsoleWindowViewModel}">
       <local:ConsoleWindow/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type local:ViewModels.WorldWindowViewModel}">
-      <local:WorldWindow/>
+    <DataTemplate DataType="{x:Type local:ViewModels.EnvironmentWindowViewModel}">
+      <local:EnvironmentWindow/>
     </DataTemplate>
   </Window.DataTemplates>
 

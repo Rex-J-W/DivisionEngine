@@ -38,13 +38,4 @@
   <ItemGroup>
     <ProjectReference Include="..\DivisionEngine.Core\DivisionEngine.Core.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="Views\ConsoleWindow.axaml.cs">
-      <DependentUpon>ConsoleWindow.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\WorldWindow.axaml.cs">
-      <DependentUpon>WorldWindow.axaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
 </Project>

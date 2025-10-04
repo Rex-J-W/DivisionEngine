@@ -5,6 +5,9 @@ using DivisionEngine.Editor.ViewModels;
 
 namespace DivisionEngine.Editor
 {
+    /// <summary>
+    /// Used for locating the view associated with a given ViewModel.
+    /// </summary>
     public class ViewLocator : IDataTemplate
     {
         public Control? Build(object? param)
