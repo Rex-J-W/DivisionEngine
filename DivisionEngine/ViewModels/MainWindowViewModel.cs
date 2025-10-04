@@ -12,8 +12,6 @@ namespace DivisionEngine.Editor.ViewModels
         public MainWindowViewModel()
         {
             CenterTabs.Add(new WorldWindowViewModel());
-            LeftTabs.Add(new EnvironmentWindowViewModel());
-            RightTabs.Add(new PropertiesWindowViewModel());
 
             BottomTabs.Add(new AssetsWindowViewModel());
             BottomTabs.Add(new ConsoleWindowViewModel());
