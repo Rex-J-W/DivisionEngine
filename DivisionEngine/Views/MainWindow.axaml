@@ -30,6 +30,18 @@
     </DataTemplate>
   </Window.DataTemplates>
 
+  <Window.Resources>
+    <!-- Shared Flyout for adding new tabs -->
+    <Flyout x:Key="AddTabFlyout" Placement="Bottom" ShowMode="TransientWithDismissOnPointerMoveAway">
+      <StackPanel>
+        <Button Content="Environment" Command="{Binding AddWindowToTabCommand}" CommandParameter="Environment"/>
+        <Button Content="Assets" Command="{Binding AddWindowToTabCommand}" CommandParameter="Assets"/>
+        <Button Content="Console" Command="{Binding AddWindowToTabCommand}" CommandParameter="Console"/>
+        <Button Content="Properties" Command="{Binding AddWindowToTabCommand}" CommandParameter="Properties"/>
+      </StackPanel>
+    </Flyout>
+  </Window.Resources>
+
   <!--Main Window-->
   <DockPanel Background="#333">
 
@@ -68,7 +80,8 @@
             </TabControl>
 
             <Button Content="+" FontSize="14" Width="18" Height="18"
-                    Margin="6,6,6,6" Padding="3,-2,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                    Margin="6,6,6,6" Padding="3,-2,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"
+                    Flyout="{StaticResource AddTabFlyout}"/>
           </Grid>
 
           <GridSplitter Grid.Column="1" ResizeDirection="Auto"/>
@@ -84,7 +97,8 @@
             </TabControl>
 
             <Button Content="+" FontSize="14" Width="18" Height="18"
-                    Margin="6,6,6,6" Padding="3,-2,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                    Margin="6,6,6,6" Padding="3,-2,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"
+                    Flyout="{StaticResource AddTabFlyout}"/>
           </Grid>
         </Grid>
         
@@ -101,7 +115,8 @@
           </TabControl>
 
           <Button Content="+" FontSize="14" Width="18" Height="18"
-                  Margin="6,6,6,6" Padding="3,-2,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                    Margin="6,6,6,6" Padding="3,-2,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"
+                    Flyout="{StaticResource AddTabFlyout}"/>
         </Grid>
       </Grid>
 
@@ -118,7 +133,8 @@
         </TabControl>
 
         <Button Content="+" FontSize="14" Width="18" Height="18"
-                Margin="6,6,6,6" Padding="3,-2,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                    Margin="6,6,6,6" Padding="3,-2,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"
+                    Flyout="{StaticResource AddTabFlyout}"/>
       </Grid>
     </Grid>
   </DockPanel>

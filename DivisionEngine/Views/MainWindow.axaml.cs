@@ -2,6 +2,7 @@
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Threading;
+using DivisionEngine.Editor.ViewModels;
 using System;
 
 namespace DivisionEngine.Editor

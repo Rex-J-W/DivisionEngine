@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using CommunityToolkit.Mvvm.Input;
+using System.Collections.ObjectModel;
 
 namespace DivisionEngine.Editor.ViewModels
 {
@@ -19,6 +20,28 @@ namespace DivisionEngine.Editor.ViewModels
 
             BottomTabs.Add(new AssetsWindowViewModel());
             BottomTabs.Add(new ConsoleWindowViewModel());
+        }
+
+        [RelayCommand]
+        private void AddWindowToTab(string window)
+        {
+            EditorWindowViewModel? vm = window switch
+            {
+                "Assets" => new AssetsWindowViewModel(),
+                "Console" => new ConsoleWindowViewModel(),
+                "Environment" => new EnvironmentWindowViewModel(),
+                "Properties" => new PropertiesWindowViewModel(),
+                "World" => new WorldWindowViewModel(),
+                _ => null
+            };
+
+            if (vm == null)
+            {
+                Debug.Error($"Unknown window type: {window}");
+                return;
+            }
+
+            CenterTabs.Add(vm);
         }
     }
 }
