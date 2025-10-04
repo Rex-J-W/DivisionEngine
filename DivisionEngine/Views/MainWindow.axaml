@@ -58,48 +58,68 @@
       <Grid Grid.Column="0" RowDefinitions="*, 2, 200">
         <Grid Grid.Row="0" ColumnDefinitions="200, 2, *">
           <!--Left Tabs-->
-          <TabControl Grid.Column="0" ItemsSource="{Binding LeftTabs}">
-            <TabControl.ItemTemplate>
-              <DataTemplate>
-                <TextBlock Text="{Binding Title}"/>
-              </DataTemplate>
-            </TabControl.ItemTemplate>
-          </TabControl>
+          <Grid Grid.Column="0">
+            <TabControl ItemsSource="{Binding LeftTabs}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+              <TabControl.ItemTemplate>
+                <DataTemplate>
+                  <TextBlock Text="{Binding Title}"/>
+                </DataTemplate>
+              </TabControl.ItemTemplate>
+            </TabControl>
+
+            <Button Content="+" FontSize="14" Width="18" Height="18"
+                    Margin="6,6,6,6" Padding="3,-2,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+          </Grid>
 
           <GridSplitter Grid.Column="1" ResizeDirection="Auto"/>
 
           <!--Center Tabs-->
-          <TabControl Grid.Column="2" ItemsSource="{Binding CenterTabs}">
-            <TabControl.ItemTemplate>
-              <DataTemplate>
-                <TextBlock Text="{Binding Title}"/>
-              </DataTemplate>
-            </TabControl.ItemTemplate>
-          </TabControl>
+          <Grid Grid.Column="2">
+            <TabControl ItemsSource="{Binding CenterTabs}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+              <TabControl.ItemTemplate>
+                <DataTemplate>
+                  <TextBlock Text="{Binding Title}"/>
+                </DataTemplate>
+              </TabControl.ItemTemplate>
+            </TabControl>
+
+            <Button Content="+" FontSize="14" Width="18" Height="18"
+                    Margin="6,6,6,6" Padding="3,-2,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+          </Grid>
         </Grid>
         
         <GridSplitter Grid.Row="1" ResizeDirection="Auto"/>
         
         <!--Bottom Tabs-->
-        <TabControl Grid.Row="2" ItemsSource="{Binding BottomTabs}">
+        <Grid Grid.Row="2">
+          <TabControl ItemsSource="{Binding BottomTabs}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TabControl.ItemTemplate>
+              <DataTemplate>
+                <TextBlock Text="{Binding Title}"/>
+              </DataTemplate>
+            </TabControl.ItemTemplate>
+          </TabControl>
+
+          <Button Content="+" FontSize="14" Width="18" Height="18"
+                  Margin="6,6,6,6" Padding="3,-2,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        </Grid>
+      </Grid>
+
+      <GridSplitter Grid.Column="1" ResizeDirection="Auto"/>
+
+      <!--Right Tabs-->
+      <Grid Grid.Column="2">
+        <TabControl ItemsSource="{Binding RightTabs}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
           <TabControl.ItemTemplate>
             <DataTemplate>
               <TextBlock Text="{Binding Title}"/>
             </DataTemplate>
           </TabControl.ItemTemplate>
         </TabControl>
+
+        <Button Content="+" FontSize="14" Width="18" Height="18"
+                Margin="6,6,6,6" Padding="3,-2,0,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
       </Grid>
-
-      <GridSplitter Grid.Column="1" ResizeDirection="Auto"/>
-
-      <!--Right Tabs-->
-      <TabControl Grid.Column="2" ItemsSource="{Binding RightTabs}">
-        <TabControl.ItemTemplate>
-          <DataTemplate>
-            <TextBlock Text="{Binding Title}"/>
-          </DataTemplate>
-        </TabControl.ItemTemplate>
-      </TabControl>
     </Grid>
   </DockPanel>
 </Window>
