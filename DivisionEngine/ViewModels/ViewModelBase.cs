@@ -2,6 +2,8 @@
 
 namespace DivisionEngine.Editor.ViewModels
 {
-    public class ViewModelBase : ReactiveObject
-    { }
+    /// <summary>
+    /// Base class for all ViewModels in the Division Engine editor.
+    /// </summary>
+    public class ViewModelBase : ReactiveObject { }
 }

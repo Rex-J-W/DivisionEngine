@@ -2,9 +2,9 @@ using Avalonia.Controls;
 
 namespace DivisionEngine.Editor;
 
-public partial class ConsoleWindow : UserControl
+public partial class WorldWindow : UserControl
 {
-    public ConsoleWindow()
+    public WorldWindow()
     {
         InitializeComponent();
     }

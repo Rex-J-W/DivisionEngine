@@ -13,6 +13,9 @@
   <!--Editor Window Templates-->
   <!--DO NOT FORGET TO PUT CUSTOM WINDOWS HERE!-->
   <Window.DataTemplates>
+    <DataTemplate DataType="{x:Type local:ViewModels.WorldWindowViewModel}">
+      <local:WorldWindow/>
+    </DataTemplate>
     <DataTemplate DataType="{x:Type local:ViewModels.AssetsWindowViewModel}">
       <local:AssetsWindow/>
     </DataTemplate>
@@ -21,6 +24,9 @@
     </DataTemplate>
     <DataTemplate DataType="{x:Type local:ViewModels.EnvironmentWindowViewModel}">
       <local:EnvironmentWindow/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type local:ViewModels.PropertiesWindowViewModel}">
+      <local:PropertiesWindow/>
     </DataTemplate>
   </Window.DataTemplates>
 
