@@ -3,6 +3,9 @@ using Avalonia;
 
 namespace DivisionEngine.Editor
 {
+    /// <summary>
+    /// Startup class for the Division Engine Avalonia editor application.
+    /// </summary>
     public sealed class EditorProgram
     {
         // Initialization code. Don't use any Avalonia, third-party APIs or any
